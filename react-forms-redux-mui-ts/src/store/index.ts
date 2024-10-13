@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { timeListSliceReducers } from '../timeList/timeListSlices';
+import { formErrorsSliceReducer } from '../formErrors/formErrorsSlice';
 
 const store = configureStore({
   reducer: {
-    timeList: timeListSliceReducers
+    timeList: timeListSliceReducers,
+    formErrors: formErrorsSliceReducer
   },
 });
 

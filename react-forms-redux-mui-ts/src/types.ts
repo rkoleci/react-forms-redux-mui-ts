@@ -10,3 +10,10 @@ export namespace UITimeList {
     }
 
 }
+
+export namespace UIFormErrors {
+    export interface FormErrorState {
+        errorMessages: string[],
+        inputErrors: { [x: string]: string},
+    }
+}
