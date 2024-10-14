@@ -8,15 +8,11 @@ import { updateTimeListThunk } from './thunks/updateTimeListThunk';
 
 interface TimeListPageCallbacks {
   onAdd: () => void;
+  onSave: () => void;
 }
 
-function TimeListPage({ onAdd, }: TimeListPageCallbacks) {
-  const s = useSelector(s => s)
-  console.log(s)
-  const onSave = () => {
-
-  }
-
+function TimeListPage({ onAdd, onSave}: TimeListPageCallbacks) {
+ 
   return (
     <TimeListPageLayout
       title={'Time List'}

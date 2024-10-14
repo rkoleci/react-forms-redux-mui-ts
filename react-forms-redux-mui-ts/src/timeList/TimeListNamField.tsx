@@ -20,7 +20,7 @@ interface TimeListNameCallbacks {
 }
 
 const TimeListNameField = ({ name, error, onChange }: TimeListNameFieldProps & TimeListNameCallbacks) => {
-
+    console.log(111, 'error', error)
     const onTextChange = (e: any) => {
         onChange(e.target.value)
     }
@@ -28,10 +28,9 @@ const TimeListNameField = ({ name, error, onChange }: TimeListNameFieldProps & T
     return (
         <TextField
             value={name}
-            FormHelperTextProps={{
-                error: !!error,
-            }}
             onChange={onTextChange}
+            error={!!error}
+            helperText={error || ''}
         />
     )
 }
@@ -41,7 +40,7 @@ const mapStateToProps = (state: AppState, { id }: TimeListNameFieldOwnProps): Ti
 
     return {
         name,
-        error: FormErrorsSelectors.selectInputError(state, `${id}.${name}`)
+        error: FormErrorsSelectors.selectInputError(state, `${id}.name`)
     }
 }
 

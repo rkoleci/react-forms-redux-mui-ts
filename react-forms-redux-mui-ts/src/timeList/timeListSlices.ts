@@ -13,8 +13,8 @@ const timeListSlice = createSlice({
             timeListAdapter.addOne(state, {
                 id: crypto.randomUUID(),
                 name: '',
-                from: new Date().toString(),
-                to: new Date().toString()
+                from: "",
+                to: ""
             });
         },
 

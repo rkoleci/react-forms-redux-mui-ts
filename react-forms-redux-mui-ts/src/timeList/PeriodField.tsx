@@ -8,6 +8,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import moment, { Moment } from "moment";
 import { upsertFromPeriod, upsertToPeriod } from "./timeListSlices";
+import { FormControl, FormHelperText } from "@mui/material";
 
 
 interface PeriodFieldProps {
@@ -19,6 +20,7 @@ interface PeriodFieldProps {
 const PeriodField = ({ value, error, onChange }: PeriodFieldProps) => {
 
     return (
+        <FormControl error={!!error} fullWidth>
         <LocalizationProvider dateAdapter={AdapterMoment}>
             <DateTimePicker
                 label="Select Date & Time"
@@ -26,6 +28,8 @@ const PeriodField = ({ value, error, onChange }: PeriodFieldProps) => {
                 onChange={onChange}
             />
         </LocalizationProvider>
+        {error && <FormHelperText>{error}</FormHelperText>}
+    </FormControl>
     )
 }
 
@@ -89,7 +93,7 @@ const mapStateToPropsFrom = (state: AppState, { id }: FromFieldOwnProps) => {
 
     return {
         value: to,
-        error: FormErrorsSelectors.selectInputError(state, `${id}.to`)
+        error: FormErrorsSelectors.selectInputError(state, `${id}.from`)
     }
 }
 

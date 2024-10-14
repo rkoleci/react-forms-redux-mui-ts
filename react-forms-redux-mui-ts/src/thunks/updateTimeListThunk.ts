@@ -13,7 +13,6 @@ export const updateTimeListThunk = createAsyncThunk<
 >(
     "timeList/updateTimeList",
     async (req, thunkApi) => {
-
         const timeList = UITimeListSelectors.selectAll(thunkApi.getState())
 
         const { errorMessages, inputErrors } = validateTimeList(timeList)
