@@ -9,6 +9,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import moment, { Moment } from "moment";
 import { upsertFromPeriod, upsertToPeriod } from "./timeListSlices";
 import { FormControl, FormHelperText } from "@mui/material";
+import { translate } from "../formErrors/translator";
 
 
 interface PeriodFieldProps {
@@ -28,7 +29,7 @@ const PeriodField = ({ value, error, onChange }: PeriodFieldProps) => {
                 onChange={onChange}
             />
         </LocalizationProvider>
-        {error && <FormHelperText>{error}</FormHelperText>}
+        {error && <FormHelperText sx={{position: 'absolute', bottom: '-20px'}}>{translate(error)}</FormHelperText>}
     </FormControl>
     )
 }

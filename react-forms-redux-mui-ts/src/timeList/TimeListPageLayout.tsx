@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, IconButton, Paper, Typography, styled } from '@mui/material'
 import { PlusOneOutlined, SaveOutlined } from '@mui/icons-material';
+import AddIcon from '@mui/icons-material/Add';
 
 const StyledHeader = styled(Box)(() => ({
     display: 'flex',
@@ -21,19 +22,21 @@ export default function TimeListPageLayout({ children, header, title, OnSave, on
 
     return (
         <Container >
-            <Paper sx={{ p: 4 }}>
+            <Paper sx={{ p: 4, m: 4 }}>
                 <StyledHeader>
-                    <Typography variant='h6'>{title}</Typography>
+                    <Typography variant='h6' mb={4}>{title}</Typography>
                     <StyledHeader>
                         <IconButton onClick={onAdd}>
-                            <PlusOneOutlined />
+                            <AddIcon />
                         </IconButton>
                         <IconButton onClick={OnSave}>
                             <SaveOutlined />
                         </IconButton>
                     </StyledHeader>
                 </StyledHeader>
+                <Box sx={{display: 'flex', gap: '32px', flexDirection: 'column'}}>
                 {children}
+                </Box>
             </Paper>
         </Container>
     )

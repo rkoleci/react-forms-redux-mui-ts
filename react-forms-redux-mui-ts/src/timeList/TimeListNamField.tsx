@@ -5,6 +5,8 @@ import { FormErrorsSelectors } from '../formErrors/formErrorsSelectors';
 import { connect } from 'react-redux';
 import { TextField } from '@mui/material';
 import { upsertName } from './timeListSlices';
+import { translate } from '../formErrors/translator';
+import styled from '@emotion/styled';
 
 interface TimeListNameFieldOwnProps {
     id: string;
@@ -20,7 +22,6 @@ interface TimeListNameCallbacks {
 }
 
 const TimeListNameField = ({ name, error, onChange }: TimeListNameFieldProps & TimeListNameCallbacks) => {
-    console.log(111, 'error', error)
     const onTextChange = (e: any) => {
         onChange(e.target.value)
     }
@@ -30,7 +31,13 @@ const TimeListNameField = ({ name, error, onChange }: TimeListNameFieldProps & T
             value={name}
             onChange={onTextChange}
             error={!!error}
-            helperText={error || ''}
+            helperText={translate(error) || ''}
+            FormHelperTextProps={{
+                sx: {
+                    position: 'absolute', bottom: '-20px'
+                }
+            }}
+           
         />
     )
 }

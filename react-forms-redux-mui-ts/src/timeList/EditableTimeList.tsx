@@ -59,7 +59,6 @@ const EditableTimeList = ({ timeList }: EditableTimeListProps) => {
 }
 
 const mapStateToProps = (state: AppState): EditableTimeListProps => {
-    console.log(111, 'timelist', state)
     return {
         timeList: UITimeListSelectors.selectAll(state)
     }
